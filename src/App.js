@@ -1,23 +1,28 @@
+//import useState
+import React, { useState } from 'react'
 import logo from './logo.svg';
 import './App.css';
+//Import ColorBlock component
+import ColorBlock from './ColorBlock'
 
+// COLOR APP
 function App() {
+  // hardcoded colors
+  let colors = ['violet', 'blue', 'lightblue', 'green', 
+  'greenyellow', 'yellow', 'orange', 'red']
+  // maps the colors
+  
+  let colorMap = colors.map((color, i) => {
+    return (
+      <ColorBlock color={color} />
+    )
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        {colors.map((color, i) => 
+            <ColorBlock key={i} color={color} />
+        )}
+
     </div>
   );
 }
